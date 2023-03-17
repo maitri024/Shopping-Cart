@@ -1,0 +1,36 @@
+ul li {
+    list-style-type: none;
+
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.container{
+    margin: 10px 0px 13px 279px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 25px;
+}
+
+.card {
+    border-radius: 3px;
+    width: 12rem;
+    height: 12rem;
+    margin: 13px 42px 24px 46px;
+    background-color: darkolivegreen;
+}
+
+.card_inner {
+    text-align: center;
+    font-size: 25px;
+    
+}
+
+.card_name{
+    font-weight: bold;
+}
