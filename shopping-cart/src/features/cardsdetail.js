@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table';
 import { MdDelete } from "react-icons/md";
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { add_cart, decrement_qnty, del_cart, increment_qnty } from '../redux/cartSlice';
+import { add_cart, decrement_qnty, del_cart} from '../redux/cartSlice';
 
 
 
@@ -24,13 +24,18 @@ const Shoppingcart = () => {
       return e.id == id
     })
     setData(comparedata)
-    // console.log(comparedata)
+    console.log("hellooo",comparedata)
   }
 
   const delitems = (id) => {
     dispatch(del_cart(id))
     history("/")
   }
+
+  useEffect(() => {
+    compare()
+  }, [cartItems])
+
 
   useEffect(() => {
     compare();
@@ -56,9 +61,9 @@ const Shoppingcart = () => {
                             <p><strong>Restaurant:</strong>{ele.rname}</p>
                             <p><strong>Price:</strong>₹{ele.price}</p>
                             <p><strong>Dishes:</strong>{ele.address}</p>
-                            <p><strong>Total:</strong>₹{ele.price * ele.qnty}</p>
+                            <p><strong>Total:</strong>₹<strong>{ele.price * ele.qnty}</strong></p>
                             <div className='mt-5 d-flex justify-content-between align-items-center' style={{ width: 100, cursor: "pointer", background: "#ddd", color: "#111" }}>
-                              <span style={{ fontSize: 24 }} onClick={()=>dispatch(decrement_qnty(ele.id))}>-</span>
+                              <span style={{ fontSize: 24 }} onClick={ele.qnty <=1 ? ()=>delitems(ele.id) : ()=>dispatch(decrement_qnty(ele))}>-</span>
                               <span style={{ fontSize: 24 }}>{ele.qnty}</span>
                               <span style={{ fontSize: 24 }} onClick={() =>dispatch(add_cart(ele))}>+</span>
                             </div>
@@ -83,6 +88,8 @@ const Shoppingcart = () => {
     </div>
 
   )
+
+  
 }
 
 export default Shoppingcart

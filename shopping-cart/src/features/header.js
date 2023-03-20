@@ -43,6 +43,8 @@ const Header = () => {
     total();
   }, [total])
 
+
+
   const delitems = (id) => {
     dispatch(del_cart(id))
   }
@@ -98,11 +100,7 @@ const Header = () => {
                               <td>
                                 <p>{element.rname}</p>
                                 <p>Price:₹{element.price}</p>
-                                <div className='mt-5 d-flex justify-content-between align-items-center' style={{ width: 100, cursor: "pointer", background: "#ddd", color: "#111" }}>
-                              <span style={{ fontSize: 24 ,cursor:"pointer"}} onClick={()=>dispatch(decrement_qnty(element))}>-</span>
-                              <span style={{ fontSize: 24 }}>{element.qnty}</span>
-                              <span style={{ fontSize: 24,cursor:"pointer" }} onClick={() =>dispatch(add_cart(element))}>+</span>
-                            </div>
+                                <p>Quanityt:{element.qnty}</p>
                               </td>
 
                               <td>
@@ -114,7 +112,7 @@ const Header = () => {
                         )
                       })
                     }
-                    <p className="text-center">Total:₹{price}</p>
+                    <p className="text-center">Total:₹<strong>{price}</strong></p>
                   </tbody>
                 </Table>
               </div> :

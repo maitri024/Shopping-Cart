@@ -16,7 +16,13 @@ export const counterSlice = createSlice({
       state.value += 1
     },
     decrement: (state) => {
-      state.value -= 1
+      
+      if(state.value == 0)
+      {
+        state.value = 0
+      }else{
+        state.value -= 1
+      }
     },
     incrementByAmount: (state, action) => {
       state.value += action.payload

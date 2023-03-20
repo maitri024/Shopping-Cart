@@ -24,6 +24,7 @@ export function Counter() {
         >
          -
         </button>
+        <input value={count}></input>
       </div>
       <div >
         <input
